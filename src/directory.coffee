@@ -32,10 +32,7 @@ class Directory
 
     if directoryPath
       directoryPath = path.normalize(directoryPath)
-      # Remove a trailing slash
-      if directoryPath.length > 1 and directoryPath[directoryPath.length - 1] is path.sep
-        directoryPath = directoryPath.substring(0, directoryPath.length - 1)
-    @path = directoryPath
+    @path = path.resolve(directoryPath)
 
     @lowerCasePath = @path.toLowerCase() if fs.isCaseInsensitive()
     @reportOnDeprecations = true if Grim.includeDeprecatedAPIs

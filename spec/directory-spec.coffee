@@ -24,7 +24,7 @@ describe "Directory", ->
     expect(new Directory(directory.path + path.sep + path.sep).path.toLowerCase()).toBe directory.path.toLowerCase()
 
     expect(new Directory(path.sep).getBaseName()).toBe ''
-    expect(new Directory(path.sep).path).toBe path.sep
+    expect(new Directory(path.sep).path).toBe path.resolve(path.sep)
 
   it 'returns false from isFile()', ->
     expect(directory.isFile()).toBe false
